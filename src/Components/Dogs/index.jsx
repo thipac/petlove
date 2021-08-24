@@ -9,18 +9,20 @@ const Dogs = () => {
     useEffect(() => {
         fetch('https://nameless-escarpment-53355.herokuapp.com/pets/dogs')
         .then((resposta) => resposta.json())
-        .then((dados) => {
+        .then((dados)=>{
             setDadosApi(dados.results)
             setApiChegou(true)
+            })
         }, [])
     
-    return (
-        <S.Container>
-             {!!dadosApi && apiChegou ? (dadosApi.map((item) => console.log(item.nome))) : (<p>Carregando</p>)}
-        </S.Container>
-        )    
-    })
-}  
+        return (
+            <S.Container>
+                {!!dadosApi && apiChegou ? (dadosApi.map((item) => console.log(item.nome))) : (<p>Carregando</p>)}
+            </S.Container>
+        )
+    }
+    
 
 
-export default Dogs
+export default Dogs 
+
